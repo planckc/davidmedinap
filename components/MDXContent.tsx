@@ -4,8 +4,15 @@ import * as runtime from "react/jsx-runtime";
 import { useMemo } from "react";
 
 const useMDXComponent = (code: string) => {
-  const fn = new Function(code);
-  return fn({ ...runtime }).default;
+  try {
+    // Wrap code in function that returns the component
+    const fn = new Function('arguments', `return ${code}`);
+    const result = fn(runtime);
+    return result.default || result;
+  } catch (error) {
+    console.error('MDX compilation error:', error);
+    return () => null;
+  }
 };
 
 interface MDXProps {

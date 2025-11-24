@@ -3,6 +3,7 @@ import { type Locale, getTranslations, categoryTranslations } from "@/lib/i18n";
 
 interface Post {
   slug: string;
+  slugAsParams: string;
   title: string;
   description?: string;
   date: string;
@@ -41,7 +42,7 @@ export function PostCard({ post, locale }: PostCardProps) {
       </div>
 
       {/* Title */}
-      <Link href={`/${locale}/blog/${post.slug}`} className="group">
+      <Link href={`/${locale}/blog/${post.slugAsParams}`} className="group">
         <h3 className="text-xl font-bold tracking-tight text-zinc-900 transition-colors group-hover:text-zinc-600 dark:text-zinc-50 dark:group-hover:text-zinc-300">
           {post.title}
         </h3>
@@ -70,7 +71,7 @@ export function PostCard({ post, locale }: PostCardProps) {
 
       {/* Read More */}
       <Link
-        href={`/${locale}/blog/${post.slug}`}
+        href={`/${locale}/blog/${post.slugAsParams}`}
         className="mt-2 inline-flex items-center text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-600 dark:text-zinc-50 dark:hover:text-zinc-300"
       >
         {t.readMore}

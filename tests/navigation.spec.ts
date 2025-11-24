@@ -9,11 +9,11 @@ test.describe('Navigation Tests', () => {
   test('should display home page with correct title', async ({ page }) => {
     await page.goto('/en');
 
-    // Check main heading
-    await expect(page.getByRole('heading', { name: 'David Medina' })).toBeVisible();
+    // Check main heading (h1 in main, not footer)
+    await expect(page.locator('main h1')).toContainText('David Medina');
 
-    // Check tagline
-    await expect(page.getByText('AI/ML Engineer • Data Architect • Community Builder')).toBeVisible();
+    // Check tagline in main section
+    await expect(page.locator('main').getByText('AI/ML Engineer • Data Architect • Community Builder')).toBeVisible();
   });
 
   test('should navigate to blog from home', async ({ page }) => {
@@ -30,12 +30,12 @@ test.describe('Navigation Tests', () => {
   test('should have working header navigation', async ({ page }) => {
     await page.goto('/en/blog');
 
-    // Click home in header
-    await page.getByRole('link', { name: 'Home' }).click();
+    // Click home in header (use navigation to be specific)
+    await page.locator('nav[aria-label="Main navigation"]').getByRole('link', { name: 'Home' }).click();
     await expect(page).toHaveURL('/en');
 
     // Go back to blog
-    await page.getByRole('link', { name: 'Blog' }).click();
+    await page.locator('nav[aria-label="Main navigation"]').getByRole('link', { name: 'Blog' }).click();
     await expect(page).toHaveURL('/en/blog');
   });
 

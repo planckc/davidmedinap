@@ -13,9 +13,9 @@ interface PostPageProps {
 }
 
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const { slug } = await params;
+  const { slug, lang } = await params;
   const slugPath = slug?.join("/");
-  const post = posts.find((post) => post.slugAsParams === slugPath);
+  const post = posts.find((post) => post.slugAsParams === slugPath && post.lang === lang);
 
   if (!post) {
     return null;

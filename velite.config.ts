@@ -4,7 +4,7 @@ import rehypeSlug from 'rehype-slug'
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
-  slugAsParams: data.slug.split('/').slice(1).join('/'),
+  slugAsParams: data.slug.split('/').slice(2).join('/'),
 })
 
 const posts = defineCollection({

@@ -6,6 +6,7 @@ import { type Locale, getTranslations, categoryTranslations } from "@/lib/i18n";
 
 interface Post {
   slug: string;
+  slugAsParams: string;
   title: string;
   description?: string;
   date: string;

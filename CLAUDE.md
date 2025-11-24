@@ -64,9 +64,55 @@ Velite processes MDX with:
 
 TypeScript is configured with `@/*` mapping to project root (tsconfig.json:22-23), allowing imports like `@/app/...` or `@/content/...`.
 
+## Testing Protocols
+
+### Running and Documenting Tests
+
+When running Playwright tests, **ALWAYS** follow this documentation protocol:
+
+1. **Run the tests**:
+   ```bash
+   npx playwright test --project=chromium
+   ```
+
+2. **Archive the test report** with timestamp:
+   ```bash
+   DATE=$(date +%Y-%m-%d_%H-%M)
+   STATUS="passing-X-of-Y"  # Update with actual pass/fail counts
+   cp -r playwright-report tests/reports/${DATE}_${STATUS}
+   ```
+
+3. **Update test documentation** in `tests/TEST_STATUS.md`:
+   - Add timestamp of test run
+   - Update test counts (passed/failed/skipped)
+   - Update duration
+   - Document any new failures or fixes
+   - Add entry to historical test runs table
+
+4. **Commit test artifacts** together with code changes:
+   ```bash
+   git add tests/reports/ tests/TEST_STATUS.md
+   git commit -m "test: Update test reports - X passed, Y skipped"
+   ```
+
+### Test Documentation Files
+
+- `tests/README.md` - Test suite overview and usage guide
+- `tests/TEST_STATUS.md` - Current test status and historical runs
+- `tests/reports/` - Archived HTML reports from test runs
+- `tests/reports/README.md` - Guide for viewing archived reports
+
+### Test Execution Standards
+
+- **Before merging**: All tests must pass (skipped tests are acceptable if documented)
+- **After fixing bugs**: Run full test suite and archive report
+- **After adding features**: Update tests, run suite, archive report
+- **Weekly**: Run cross-browser tests (Chromium, Firefox, WebKit)
+
 ## Important Notes
 
 - The `.velite` directory is generated automatically - never edit it directly
 - Static assets from Velite are output to `public/static/` with hash-based filenames
 - The Velite webpack plugin ensures content is built before Next.js compilation
 - When working with blog posts, always validate against the schema in velite.config.ts
+- **Test reports must be archived after every significant test run** - this creates audit trail and helps track regressions
