@@ -67,7 +67,37 @@
 
 ---
 
-### 3. Playwright MCP - E2E Testing
+### 3. Context7 MCP - Optimización de Contexto
+
+**Propósito:** Documentación actualizada y específica por versión de librerías
+
+**Herramientas disponibles:**
+- `resolve-library-id` - Convertir nombre de librería a ID de Context7
+- `get-library-docs` - Obtener documentación actualizada de librería
+
+**API Key:** No requiere (servicio gratuito de Upstash)
+
+**Casos de uso en este proyecto:**
+- Obtener docs actualizadas de Next.js 16
+- Documentación específica de Velite
+- Ejemplos de código de Tailwind CSS 4
+- APIs de React 19
+- Reducir tokens con docs precisas (no genéricas)
+
+**Ejemplo de uso:**
+```
+"use context7 para obtener la documentación de Next.js 16 App Router"
+→ Context7 inyecta docs específicas de la versión exacta
+```
+
+**Beneficio clave:**
+- Evita alucinaciones con APIs obsoletas
+- Docs de la versión exacta que estás usando
+- Optimiza tokens (solo lo necesario)
+
+---
+
+### 4. Playwright MCP - E2E Testing
 
 **Propósito:** Testing end-to-end y visual regression
 
@@ -310,12 +340,13 @@ npx playwright install
 
 Después de configurar MCPs, verificar:
 
-- [ ] Archivo `.claude/mcp.json` creado con API keys correctas
+- [x] Archivo `.claude/mcp.json` creado con API keys correctas
 - [ ] Claude Code reiniciado
-- [ ] Exa MCP disponible (test: buscar algo simple)
-- [ ] Firecrawl MCP disponible (test: scrape una URL)
+- [x] Exa MCP disponible (test: buscar algo simple)
+- [x] Firecrawl MCP disponible (test: scrape una URL)
+- [x] Context7 MCP configurado
 - [ ] Playwright instalado: `npx playwright install`
-- [ ] `.claude/mcp.json` en `.gitignore`
+- [x] `.claude/mcp.json` en `.gitignore`
 
 ---
 
