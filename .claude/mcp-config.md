@@ -67,13 +67,14 @@
 
 ---
 
-### 3. Context7 MCP - Optimización de Contexto
+### 3. RefTools MCP - Optimización de Documentación
 
-**Propósito:** Documentación actualizada y específica por versión de librerías
+**Propósito:** Documentación actualizada y específica por versión de librerías con optimización de tokens
 
 **Herramientas disponibles:**
-- `resolve-library-id` - Convertir nombre de librería a ID de Context7
-- `get-library-docs` - Obtener documentación actualizada de librería
+- Resolución de IDs de librerías
+- Obtención de documentación optimizada
+- Caché inteligente para reducir consumo de tokens
 
 **API Key:** No requiere (servicio gratuito de Upstash)
 
@@ -82,18 +83,17 @@
 - Documentación específica de Velite
 - Ejemplos de código de Tailwind CSS 4
 - APIs de React 19
-- Reducir tokens con docs precisas (no genéricas)
+- Reducir consumo de tokens con docs precisas y cacheadas
 
-**Ejemplo de uso:**
-```
-"use context7 para obtener la documentación de Next.js 16 App Router"
-→ Context7 inyecta docs específicas de la versión exacta
-```
+**Ventaja sobre Context7:**
+- Context7 consulta directamente (consume muchos tokens)
+- RefTools optimiza consultas y cachea resultados
+- Mismo propósito, mucho más eficiente en tokens
 
 **Beneficio clave:**
 - Evita alucinaciones con APIs obsoletas
 - Docs de la versión exacta que estás usando
-- Optimiza tokens (solo lo necesario)
+- Optimiza tokens dramáticamente vs Context7
 
 ---
 
@@ -344,7 +344,7 @@ Después de configurar MCPs, verificar:
 - [ ] Claude Code reiniciado
 - [x] Exa MCP disponible (test: buscar algo simple)
 - [x] Firecrawl MCP disponible (test: scrape una URL)
-- [x] Context7 MCP configurado
+- [x] RefTools MCP configurado (reemplaza Context7 por eficiencia)
 - [ ] Playwright instalado: `npx playwright install`
 - [x] `.claude/mcp.json` en `.gitignore`
 
