@@ -62,7 +62,21 @@ Velite processes MDX with:
 
 ### Path Aliasing
 
-TypeScript is configured with `@/*` mapping to project root (tsconfig.json:22-23), allowing imports like `@/app/...` or `@/content/...`.
+TypeScript is configured with two important path aliases (tsconfig.json:21-24):
+- `@/*` → Project root (e.g., `@/app/...`, `@/content/...`)
+- `#site/content` → `.velite` directory for accessing Velite-generated types and data
+
+Example: `import { posts } from '#site/content'`
+
+## Custom Slash Commands
+
+The project includes custom slash commands (defined in `.claude/commands/`) to streamline common workflows:
+
+- `/new-post` - Creates a new MDX blog post with proper frontmatter validation
+- `/sync` - Syncs local changes to GitHub (status, commit, push)
+- `/test` - Runs Playwright tests and archives reports with timestamp
+- `/dev` - Starts development server and shows status
+- `/design-research` - Research design references using Exa and Firecrawl MCPs
 
 ## Testing Protocols
 
@@ -70,9 +84,14 @@ TypeScript is configured with `@/*` mapping to project root (tsconfig.json:22-23
 
 When running Playwright tests, **ALWAYS** follow this documentation protocol:
 
-1. **Run the tests**:
+1. **Run the tests** (dev server auto-starts via playwright.config.ts:31-36):
    ```bash
+   # Run on Chromium (default)
    npx playwright test --project=chromium
+
+   # Run on other browsers
+   npx playwright test --project=firefox
+   npx playwright test --project=webkit
    ```
 
 2. **Archive the test report** with timestamp:
