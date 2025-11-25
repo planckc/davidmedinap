@@ -128,6 +128,53 @@ When running Playwright tests, **ALWAYS** follow this documentation protocol:
 - **After adding features**: Update tests, run suite, archive report
 - **Weekly**: Run cross-browser tests (Chromium, Firefox, WebKit)
 
+## Project Phases
+
+The project is organized into the following phases:
+
+### Phase 1: Content System & Testing ✅ COMPLETED
+- Fix MDX rendering with Velite-compiled code
+- Enable previously skipped tests (MDX content, code blocks)
+- Add comprehensive visual regression tests
+- Add comprehensive performance tests
+- Result: Functional MDX rendering, 16+ new tests, build passes
+
+### Phase 2: i18n & Base Routes
+- Create `lib/i18n.ts` for language configuration (EN/ES/FR)
+- Setup dynamic routing with `app/[lang]/`
+- Create example blog posts in each language
+- Verify Velite compilation and content generation
+
+### Phase 3: Base Components
+- Build main layout components (Header, Footer, Navigation)
+- Create language switcher component
+- Build blog listing components (PostCard, PostList, PostGrid)
+- Create basic pages (home, blog list, blog post detail)
+- Setup responsive design foundations
+
+### Phase 4: Content Migration
+- Copy markdown content from source (`g:\Mi unidad\72-US\...`)
+- Convert to Velite/MDX format with proper frontmatter
+- Organize by language (EN/ES/FR) and category
+- Copy CVs and assets to `public/assets/`
+- Validate all content renders correctly
+
+### Phase 5: Deployment Setup
+- Push to GitHub
+- Connect Vercel project
+- Deploy preview/staging environment
+- Setup environment variables
+- Verify build and preview deployment
+
+### Phase 6: Design Refinement (Iterative)
+- Use Exa MCP to research design references
+- Use Firecrawl MCP to scrape and analyze competitor sites
+- Propose 3 design options (A/B/C) for approval
+- Implement "world-class" design (modern, elegant, visual)
+- Iterate based on client feedback
+- Use Context7 MCP for version-specific library documentation
+- Run full Playwright test suite for validation
+
 ## Important Notes
 
 - The `.velite` directory is generated automatically - never edit it directly
