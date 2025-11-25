@@ -128,6 +128,52 @@ When running Playwright tests, **ALWAYS** follow this documentation protocol:
 - **After adding features**: Update tests, run suite, archive report
 - **Weekly**: Run cross-browser tests (Chromium, Firefox, WebKit)
 
+## Figma-First Design Methodology
+
+**All projects now follow a Figma-First approach for visual design:**
+
+### Standard Workflow
+
+1. **Research & Analysis**
+   - Collect design references (Exa MCP)
+   - Analyze competitors (Firecrawl MCP)
+   - Create 3+ design options
+
+2. **Figma Mockups** ⭐ KEY STEP
+   - Design complete mockups in Figma
+   - Include all pages, components, states
+   - Document design specs (colors, spacing, typography)
+   - Create component library
+   - Support desktop + mobile
+
+3. **Client Review**
+   - Share Figma file
+   - Gather feedback visually
+   - Make adjustments in Figma
+   - Approve final design
+
+4. **Implementation**
+   - Code from Figma specs
+   - Ensure 1:1 pixel-perfect match
+   - Use component library as reference
+   - Implement responsive design
+
+5. **Testing & Deploy**
+   - Full test suite (Playwright)
+   - Performance optimization
+   - Deploy to Vercel
+
+### Benefits
+
+- ✅ **Clear communication** - Visual before code
+- ✅ **Scalability** - Reusable design systems
+- ✅ **Fewer iterations** - Decisions made early
+- ✅ **Team collaboration** - Designers + developers aligned
+- ✅ **Documentation** - Design specs always visible
+- ✅ **Future projects** - Template reuse
+
+---
+
 ## Project Phases
 
 The project is organized into the following phases:
