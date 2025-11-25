@@ -5,8 +5,18 @@ import { useMemo } from "react";
 
 const useMDXComponent = (code: string) => {
   try {
-    // Wrap code in function that returns the component
-    const fn = new Function('arguments', `return ${code}`);
+    // Velite generates code where:
+    // - const{Fragment,jsx,jsxs}=arguments[0] destructures the runtime
+    // - The code returns {default: ComponentFunction}
+    // We execute this code with proper 'arguments' binding
+
+    const fn = new Function('_mdx_runtime', `
+      return (function() {
+        const arguments = [_mdx_runtime];
+        ${code}
+      }).apply(this, [_mdx_runtime])
+    `);
+
     const result = fn(runtime);
     return result.default || result;
   } catch (error) {

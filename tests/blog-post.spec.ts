@@ -17,9 +17,8 @@ test.describe('Blog Post Tests', () => {
     await expect(page.locator('article header').getByText('technology')).toBeVisible();
   });
 
-  test.skip('should render MDX content', async ({ page }) => {
-    // TODO: MDX rendering is broken - new Function() approach doesn't work with Velite compiled code
-    // Need to investigate alternative MDX rendering approach
+  test('should render MDX content', async ({ page }) => {
+    // MDX rendering is now fixed - using proper Function wrapping for Velite code
     await page.goto('/en/blog');
     await page.getByRole('article').first().getByRole('link', { name: 'Read more' }).click();
 
@@ -65,8 +64,8 @@ test.describe('Blog Post Tests', () => {
     await expect(page.getByRole('heading', { name: 'Blog', level: 1 })).toBeVisible();
   });
 
-  test.skip('should display code blocks with syntax highlighting', async ({ page }) => {
-    // TODO: MDX rendering is broken - skipping code block test
+  test('should display code blocks with syntax highlighting', async ({ page }) => {
+    // MDX rendering is now fixed - code blocks should render with syntax highlighting
     await page.goto('/en/blog');
     await page.getByRole('article').first().getByRole('link', { name: 'Read more' }).click();
 
