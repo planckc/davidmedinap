@@ -54,32 +54,39 @@
 
 ---
 
-## 🎨 DESIGN SYSTEM DETAILS
+## 🎨 DESIGN SYSTEM SELECTED
 
-### Recomendación: Option A (Tech Minimalist Elite) ⭐
+### ✅ OPTION B: Interactive Innovation Showcase (APPROVED)
 
 **Colores (Dark Mode):**
 ```css
---bg-primary: #0f172a        /* slate-900 */
---text-primary: #f1f5f9      /* slate-100 */
---text-muted: #94a3b8        /* slate-400 */
---accent: #38bdf8 → #8b5cf6  /* Blue to Purple gradient */
+--bg-primary: #0a0a0a        /* Pure Black */
+--text-primary: #ffffff      /* White */
+--accent: #ec4899 → #8b5cf6  /* Pink to Purple gradient */
+--secondary: #06b6d4         /* Cyan accent */
 ```
 
 **Tipografía:**
-- Headings: Inter bold, leading 1.2
-- Body: Inter regular, leading 1.7
-- Code: Geist Mono
+- Headings: Space Grotesk bold, modern, geometric
+- Body: Space Grotesk regular
+- Code: Fira Code
 
-**Beneficios:**
-- 2-3 weeks implementación
-- Bajo riesgo, patrones probados
-- Lighthouse 95+, WCAG AAA
-- Perfecto para data engineer con 20+ años
+**Características:**
+- Asymmetric 2-column hero layout (text LEFT, photo RIGHT)
+- Large 600px photo section (FULL HEIGHT)
+- 2-column card grid for projects (larger, more breathing room)
+- Heavy animations (3D transforms, parallax, hover effects)
+- Bold, dynamic aesthetic
 
-**Alternativas documentadas:**
-- Option B: Interactive Innovation (4-6 weeks, high risk)
-- Option C: Elegant Professional Hybrid (3-4 weeks, medium)
+**Timeline:**
+- 4-6 weeks implementación
+- Higher complexity but worth it
+- Lighthouse 85+, WCAG AA
+- Perfecto para showcase de datos engineer
+
+**Anterior:**
+- ~~Option A: Tech Minimalist Elite~~ (Fast but too safe)
+- ~~Option C: Elegant Professional Hybrid~~ (Too middle-ground)
 
 ---
 
