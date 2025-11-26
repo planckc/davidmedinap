@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Medina Portfolio - Design Options Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-button.active {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .tab-button:hover {
+            border-color: #333;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .viewport-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .viewport-button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .viewport-button.active {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .mockup-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .viewport-desktop {
+            width: 1440px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .viewport-mobile {
+            width: 375px;
+            max-width: 100%;
+            margin: 0 auto;
+            border: 8px solid #333;
+            border-radius: 40px;
+            overflow: hidden;
+        }
+
+        /* ===== OPTION A: Tech Minimalist Elite ===== */
+
+        .option-a-bg {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .option-a-secondary {
+            background-color: #1e293b;
+        }
+
+        .option-a-accent-start {
+            color: #38bdf8;
+        }
+
+        .option-a-gradient {
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== OPTION B: Interactive Innovation ===== */
+
+        .option-b-bg {
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        .option-b-secondary {
+            background-color: #1a1a1a;
+        }
+
+        .option-b-accent {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== OPTION C: Elegant Professional Hybrid ===== */
+
+        .option-c-bg-light {
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+
+        .option-c-bg-dark {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+
+        .option-c-secondary-light {
+            background-color: #f8fafc;
+        }
+
+        .option-c-secondary-dark {
+            background-color: #1f2937;
+        }
+
+        /* ===== COMMON COMPONENTS ===== */
+
+        .nav {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            padding: 80px 40px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.8;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(56, 189, 248, 0.3);
+        }
+
+        .blog-section {
+            padding: 60px 40px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .option-a .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+        }
+
+        .option-a .card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-4px);
+        }
+
+        .option-b .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+        }
+
+        .option-b .card:hover {
+            border-color: #ec4899;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(236, 72, 153, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            opacity: 0.3;
+        }
+
+        .option-b .card-image {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+
+        .card-date {
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        .footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .design-specs {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .spec-item {
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 6px;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .spec-value {
+            font-family: 'Courier New', monospace;
+            color: #666;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 8px;
+            border: 1px solid #ddd;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+                min-height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .blog-section {
+                padding: 40px 20px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+        }
+
+        .comparison-note {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            color: #333;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Design Options Preview</h1>
+            <p class="subtitle">David Medina Portfolio - Interactive Mockups (Desktop 1440px & Mobile 375px)</p>
+            <p class="subtitle" style="margin-top: 10px;">Use the tabs below to switch between design options. Toggle between desktop and mobile views.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'option-a')">
+                ⭐ Option A: Tech Minimalist Elite (RECOMMENDED)
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'option-b')">
+                🚀 Option B: Interactive Innovation
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'option-c')">
+                ✨ Option C: Elegant Professional Hybrid
+            </button>
+        </div>
+
+        <!-- ===== OPTION A ===== -->
+        <div id="option-a" class="tab-content active">
+            <div class="comparison-note">
+                <strong>Option A: Tech Minimalist Elite</strong> - Professional dark theme with blue-to-purple gradient accents. Fast to implement (2-3 weeks), perfect for data engineering expertise, WCAG AAA accessible.
+            </div>
+
+            <div class="design-specs">
+                <h3>Design Specifications - Option A</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Background Primary</div>
+                        <div><span class="color-swatch" style="background-color: #0f172a;"></span> #0f172a</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Text Primary</div>
+                        <div><span class="color-swatch" style="background-color: #f1f5f9;"></span> #f1f5f9</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Accent Start</div>
+                        <div><span class="color-swatch" style="background-color: #38bdf8;"></span> #38bdf8</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Accent End</div>
+                        <div><span class="color-swatch" style="background-color: #8b5cf6;"></span> #8b5cf6</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Headings</div>
+                        <div class="spec-value">Inter Bold, 96px, leading 1.1</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Body Text</div>
+                        <div class="spec-value">Inter Regular, 18px, leading 1.7</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewport-controls">
+                <button class="viewport-button active" onclick="switchViewport(event, 'option-a', 'desktop')">
+                    🖥️ Desktop (1440px)
+                </button>
+                <button class="viewport-button" onclick="switchViewport(event, 'option-a', 'mobile')">
+                    📱 Mobile (375px)
+                </button>
+            </div>
+
+            <div class="mockup-container option-a option-a-bg viewport-desktop" id="option-a-desktop">
+                <!-- Navigation -->
+                <nav class="nav">
+                    <div class="nav-logo">DM</div>
+                    <ul class="nav-links">
+                        <li><a href="#" style="color: #f1f5f9;">Home</a></li>
+                        <li><a href="#" style="color: #f1f5f9;">About</a></li>
+                        <li><a href="#" style="color: #f1f5f9;">Blog</a></li>
+                        <li><a href="#" style="color: #f1f5f9;">Projects</a></li>
+                    </ul>
+                    <div style="color: #f1f5f9; font-size: 14px;">EN | ES | FR</div>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="hero option-a-bg">
+                    <h1 class="option-a-gradient">Data Engineer & AI Specialist</h1>
+                    <p style="color: #cbd5e1;">20+ years building scalable systems. Specializing in data architecture, machine learning, and cloud infrastructure.</p>
+                    <button class="btn btn-primary">View My Work</button>
+                    <div style="margin-top: 40px; font-size: 24px; opacity: 0.5;">↓</div>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section option-a-bg">
+                    <h2 class="section-title">Latest Articles</h2>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-image">📚</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #f1f5f9;">Getting Started with Next.js 16</div>
+                                <div class="card-description" style="color: #94a3b8;">A comprehensive guide to building modern web applications.</div>
+                                <div class="card-date" style="color: #64748b;">Jan 24, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">🧠</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #f1f5f9;">Machine Learning Fundamentals</div>
+                                <div class="card-description" style="color: #94a3b8;">Understanding the basics of ML and its applications in production.</div>
+                                <div class="card-date" style="color: #64748b;">Jan 20, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">⚙️</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #f1f5f9;">Data Pipeline Architecture</div>
+                                <div class="card-description" style="color: #94a3b8;">Building reliable and scalable data processing systems.</div>
+                                <div class="card-date" style="color: #64748b;">Jan 15, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer option-a-bg" style="color: #94a3b8;">
+                    <p>© 2025 David Medina. All rights reserved.</p>
+                </footer>
+            </div>
+
+            <div class="mockup-container option-a option-a-bg viewport-mobile" id="option-a-mobile" style="display: none;">
+                <!-- Navigation -->
+                <nav class="nav" style="padding: 12px 16px;">
+                    <div class="nav-logo" style="font-size: 16px;">DM</div>
+                    <div style="color: #f1f5f9; font-size: 12px;">≡</div>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="hero option-a-bg" style="padding: 40px 20px; min-height: 300px;">
+                    <h1 class="option-a-gradient" style="font-size: 48px;">Data Engineer</h1>
+                    <p style="color: #cbd5e1; font-size: 16px;">20+ years building scalable systems.</p>
+                    <button class="btn btn-primary" style="font-size: 14px;">View Work</button>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section option-a-bg" style="padding: 30px 16px;">
+                    <h2 class="section-title" style="font-size: 32px;">Latest Articles</h2>
+                    <div class="cards-grid" style="grid-template-columns: 1fr;">
+                        <div class="card">
+                            <div class="card-image">📚</div>
+                            <div class="card-content" style="padding: 16px;">
+                                <div class="card-title" style="color: #f1f5f9; font-size: 16px;">Getting Started with Next.js 16</div>
+                                <div class="card-date" style="color: #64748b;">Jan 24, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">🧠</div>
+                            <div class="card-content" style="padding: 16px;">
+                                <div class="card-title" style="color: #f1f5f9; font-size: 16px;">ML Fundamentals</div>
+                                <div class="card-date" style="color: #64748b;">Jan 20, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer option-a-bg" style="color: #94a3b8; font-size: 12px;">
+                    <p>© 2025 David Medina</p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- ===== OPTION B ===== -->
+        <div id="option-b" class="tab-content">
+            <div class="comparison-note" style="background: #ffe0e0; border-left-color: #ff6b6b;">
+                <strong>Option B: Interactive Innovation Showcase</strong> - Bold black theme with pink-to-purple gradients. Heavy animations, 3D effects. Implementation time: 4-6 weeks. Shows technical depth but higher complexity.
+            </div>
+
+            <div class="design-specs">
+                <h3>Design Specifications - Option B</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Background Primary</div>
+                        <div><span class="color-swatch" style="background-color: #0a0a0a;"></span> #0a0a0a</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Text Primary</div>
+                        <div><span class="color-swatch" style="background-color: #ffffff;"></span> #ffffff</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Accent Start</div>
+                        <div><span class="color-swatch" style="background-color: #ec4899;"></span> #ec4899</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Accent End</div>
+                        <div><span class="color-swatch" style="background-color: #8b5cf6;"></span> #8b5cf6</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Headings</div>
+                        <div class="spec-value">Space Grotesk Bold, 96px, leading 1.1</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Body Text</div>
+                        <div class="spec-value">Space Grotesk Regular, 18px, leading 1.7</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewport-controls">
+                <button class="viewport-button active" onclick="switchViewport(event, 'option-b', 'desktop')">
+                    🖥️ Desktop (1440px)
+                </button>
+                <button class="viewport-button" onclick="switchViewport(event, 'option-b', 'mobile')">
+                    📱 Mobile (375px)
+                </button>
+            </div>
+
+            <div class="mockup-container option-b option-b-bg viewport-desktop" id="option-b-desktop">
+                <!-- Navigation -->
+                <nav class="nav" style="border-bottom-color: rgba(255,255,255,0.1);">
+                    <div class="nav-logo" style="color: #ffffff;">DM</div>
+                    <ul class="nav-links">
+                        <li><a href="#" style="color: #ffffff;">Home</a></li>
+                        <li><a href="#" style="color: #ffffff;">About</a></li>
+                        <li><a href="#" style="color: #ffffff;">Blog</a></li>
+                        <li><a href="#" style="color: #ffffff;">Projects</a></li>
+                    </ul>
+                    <div style="color: #ffffff; font-size: 14px;">EN | ES | FR</div>
+                </nav>
+
+                <!-- Hero Section with animated background -->
+                <div class="hero option-b-bg" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));">
+                    <h1 class="option-b-accent">Data Engineer & AI Specialist</h1>
+                    <p style="color: #ffffff;">Building tomorrow's infrastructure today. 20+ years of innovation.</p>
+                    <button class="btn" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);">Explore My Work</button>
+                    <div style="margin-top: 40px; font-size: 24px; opacity: 0.5;">↓</div>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section option-b-bg">
+                    <h2 class="section-title" style="color: #ffffff;">Featured Articles</h2>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-image" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">📚</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #ffffff;">Getting Started with Next.js 16</div>
+                                <div class="card-description" style="color: #aaaaaa;">A comprehensive guide to building modern web applications.</div>
+                                <div class="card-date" style="color: #777777;">Jan 24, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">🧠</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #ffffff;">Machine Learning Fundamentals</div>
+                                <div class="card-description" style="color: #aaaaaa;">Understanding the basics of ML and its applications in production.</div>
+                                <div class="card-date" style="color: #777777;">Jan 20, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">⚙️</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #ffffff;">Data Pipeline Architecture</div>
+                                <div class="card-description" style="color: #aaaaaa;">Building reliable and scalable data processing systems.</div>
+                                <div class="card-date" style="color: #777777;">Jan 15, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer option-b-bg" style="color: #888888;">
+                    <p>© 2025 David Medina. All rights reserved.</p>
+                </footer>
+            </div>
+
+            <div class="mockup-container option-b option-b-bg viewport-mobile" id="option-b-mobile" style="display: none;">
+                <!-- Navigation -->
+                <nav class="nav" style="padding: 12px 16px; border-bottom-color: rgba(255,255,255,0.1);">
+                    <div class="nav-logo" style="color: #ffffff; font-size: 16px;">DM</div>
+                    <div style="color: #ffffff; font-size: 14px;">≡</div>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="hero option-b-bg" style="padding: 40px 20px; min-height: 300px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));">
+                    <h1 class="option-b-accent" style="font-size: 48px;">Data Engineer</h1>
+                    <p style="color: #ffffff; font-size: 16px;">Building tomorrow's infrastructure today.</p>
+                    <button class="btn" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; font-size: 14px;">Explore Work</button>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section option-b-bg" style="padding: 30px 16px;">
+                    <h2 class="section-title" style="color: #ffffff; font-size: 32px;">Featured Articles</h2>
+                    <div class="cards-grid" style="grid-template-columns: 1fr;">
+                        <div class="card">
+                            <div class="card-image" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">📚</div>
+                            <div class="card-content" style="padding: 16px;">
+                                <div class="card-title" style="color: #ffffff; font-size: 16px;">Getting Started with Next.js 16</div>
+                                <div class="card-date" style="color: #777777;">Jan 24, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">🧠</div>
+                            <div class="card-content" style="padding: 16px;">
+                                <div class="card-title" style="color: #ffffff; font-size: 16px;">ML Fundamentals</div>
+                                <div class="card-date" style="color: #777777;">Jan 20, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer option-b-bg" style="color: #888888; font-size: 12px;">
+                    <p>© 2025 David Medina</p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- ===== OPTION C ===== -->
+        <div id="option-c" class="tab-content">
+            <div class="comparison-note" style="background: #e0f2ff; border-left-color: #0099ff;">
+                <strong>Option C: Elegant Professional Hybrid</strong> - Light/dark mode toggle with warm colors. Balanced approach combining professionalism with personality. Implementation time: 3-4 weeks. Broader appeal.
+            </div>
+
+            <div class="design-specs">
+                <h3>Design Specifications - Option C (Dark Mode Shown)</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Background (Dark)</div>
+                        <div><span class="color-swatch" style="background-color: #111827;"></span> #111827</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Text Primary (Dark)</div>
+                        <div><span class="color-swatch" style="background-color: #f3f4f6;"></span> #f3f4f6</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Accent Color</div>
+                        <div><span class="color-swatch" style="background-color: #3b82f6;"></span> #3b82f6 / #60a5fa</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Secondary Accent</div>
+                        <div><span class="color-swatch" style="background-color: #06b6d4;"></span> #06b6d4</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Headings</div>
+                        <div class="spec-value">Poppins Semi-Bold, 96px, leading 1.2</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Body Text</div>
+                        <div class="spec-value">Poppins Regular, 18px, leading 1.7</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewport-controls">
+                <button class="viewport-button active" onclick="switchViewport(event, 'option-c', 'desktop')">
+                    🖥️ Desktop (1440px)
+                </button>
+                <button class="viewport-button" onclick="switchViewport(event, 'option-c', 'mobile')">
+                    📱 Mobile (375px)
+                </button>
+            </div>
+
+            <div class="mockup-container option-c option-c-bg-dark viewport-desktop" id="option-c-desktop">
+                <!-- Navigation -->
+                <nav class="nav" style="border-bottom-color: rgba(255,255,255,0.1);">
+                    <div class="nav-logo" style="color: #f3f4f6;">DM</div>
+                    <ul class="nav-links">
+                        <li><a href="#" style="color: #f3f4f6;">Home</a></li>
+                        <li><a href="#" style="color: #f3f4f6;">About</a></li>
+                        <li><a href="#" style="color: #f3f4f6;">Blog</a></li>
+                        <li><a href="#" style="color: #f3f4f6;">Projects</a></li>
+                    </ul>
+                    <div style="color: #f3f4f6; font-size: 14px;">🌙 | EN | ES | FR</div>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="hero option-c-bg-dark" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));">
+                    <h1 style="background: linear-gradient(135deg, #60a5fa, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Data Engineer & AI Specialist</h1>
+                    <p style="color: #d1d5db;">20+ years building scalable systems. Specializing in data architecture, machine learning, and cloud infrastructure.</p>
+                    <button class="btn" style="background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white;">View My Work</button>
+                    <div style="margin-top: 40px; font-size: 24px; opacity: 0.5; color: #f3f4f6;">↓</div>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section option-c-bg-dark" style="background: rgba(31, 41, 55, 0.5);">
+                    <h2 class="section-title" style="color: #f3f4f6;">Latest Articles</h2>
+                    <div class="cards-grid">
+                        <div class="card" style="background: #1f2937; border-color: #374151;">
+                            <div class="card-image" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">📚</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #f3f4f6;">Getting Started with Next.js 16</div>
+                                <div class="card-description" style="color: #9ca3af;">A comprehensive guide to building modern web applications.</div>
+                                <div class="card-date" style="color: #6b7280;">Jan 24, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card" style="background: #1f2937; border-color: #374151;">
+                            <div class="card-image" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">🧠</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #f3f4f6;">Machine Learning Fundamentals</div>
+                                <div class="card-description" style="color: #9ca3af;">Understanding the basics of ML and its applications in production.</div>
+                                <div class="card-date" style="color: #6b7280;">Jan 20, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card" style="background: #1f2937; border-color: #374151;">
+                            <div class="card-image" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">⚙️</div>
+                            <div class="card-content">
+                                <div class="card-title" style="color: #f3f4f6;">Data Pipeline Architecture</div>
+                                <div class="card-description" style="color: #9ca3af;">Building reliable and scalable data processing systems.</div>
+                                <div class="card-date" style="color: #6b7280;">Jan 15, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer option-c-bg-dark" style="color: #9ca3af;">
+                    <p>© 2025 David Medina. All rights reserved.</p>
+                </footer>
+            </div>
+
+            <div class="mockup-container option-c option-c-bg-dark viewport-mobile" id="option-c-mobile" style="display: none;">
+                <!-- Navigation -->
+                <nav class="nav" style="padding: 12px 16px; border-bottom-color: rgba(255,255,255,0.1);">
+                    <div class="nav-logo" style="color: #f3f4f6; font-size: 16px;">DM</div>
+                    <div style="color: #f3f4f6; font-size: 14px;">🌙 ≡</div>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="hero option-c-bg-dark" style="padding: 40px 20px; min-height: 300px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));">
+                    <h1 style="background: linear-gradient(135deg, #60a5fa, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 48px;">Data Engineer</h1>
+                    <p style="color: #d1d5db; font-size: 16px;">20+ years building scalable systems.</p>
+                    <button class="btn" style="background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; font-size: 14px;">View Work</button>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="blog-section option-c-bg-dark" style="padding: 30px 16px; background: rgba(31, 41, 55, 0.5);">
+                    <h2 class="section-title" style="color: #f3f4f6; font-size: 32px;">Latest Articles</h2>
+                    <div class="cards-grid" style="grid-template-columns: 1fr;">
+                        <div class="card" style="background: #1f2937; border-color: #374151;">
+                            <div class="card-image" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">📚</div>
+                            <div class="card-content" style="padding: 16px;">
+                                <div class="card-title" style="color: #f3f4f6; font-size: 16px;">Getting Started with Next.js 16</div>
+                                <div class="card-date" style="color: #6b7280;">Jan 24, 2025</div>
+                            </div>
+                        </div>
+                        <div class="card" style="background: #1f2937; border-color: #374151;">
+                            <div class="card-image" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">🧠</div>
+                            <div class="card-content" style="padding: 16px;">
+                                <div class="card-title" style="color: #f3f4f6; font-size: 16px;">ML Fundamentals</div>
+                                <div class="card-date" style="color: #6b7280;">Jan 20, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="footer option-c-bg-dark" style="color: #9ca3af; font-size: 12px;">
+                    <p>© 2025 David Medina</p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div style="background: white; padding: 30px; border-radius: 8px; margin-top: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h2>📊 Quick Comparison Summary</h2>
+            <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 12px; font-weight: 600;">Aspect</th>
+                        <th style="text-align: center; padding: 12px; font-weight: 600;">Option A</th>
+                        <th style="text-align: center; padding: 12px; font-weight: 600;">Option B</th>
+                        <th style="text-align: center; padding: 12px; font-weight: 600;">Option C</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;">Professional Appeal</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;">Implementation Speed</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;">Performance</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;">Visual Impact</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐⭐</td>
+                        <td style="text-align: center; padding: 12px;">⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;">Timeline</td>
+                        <td style="text-align: center; padding: 12px;">2-3 weeks</td>
+                        <td style="text-align: center; padding: 12px;">4-6 weeks</td>
+                        <td style="text-align: center; padding: 12px;">3-4 weeks</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;">Complexity</td>
+                        <td style="text-align: center; padding: 12px;">Low</td>
+                        <td style="text-align: center; padding: 12px;">High</td>
+                        <td style="text-align: center; padding: 12px;">Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 30px; padding: 20px; background: #f0f7ff; border-left: 4px solid #0066cc; border-radius: 4px;">
+                <h3 style="color: #0066cc; margin-bottom: 10px;">✅ Next Steps</h3>
+                <ol style="color: #333; line-height: 1.8;">
+                    <li><strong>Review these mockups</strong> - Use the tabs and viewport toggles above to see all 3 options</li>
+                    <li><strong>Provide feedback</strong> - Which option resonates with you? Any color/layout preferences?</li>
+                    <li><strong>Answer design questions</strong> - See docs/DESIGN_PROPOSAL.md for questions needing answers</li>
+                    <li><strong>Approve final direction</strong> - Once locked in, we'll move to Figma for detailed specs</li>
+                    <li><strong>Implementation begins</strong> - Build from Figma designs with exact specs</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(event, tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show the selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Mark the clicked button as active
+            event.target.classList.add('active');
+
+            // Reset viewport to desktop
+            switchViewport(null, tabName, 'desktop');
+        }
+
+        function switchViewport(event, tabName, viewport) {
+            const desktopId = `${tabName}-desktop`;
+            const mobileId = `${tabName}-mobile`;
+            const desktopElement = document.getElementById(desktopId);
+            const mobileElement = document.getElementById(mobileId);
+
+            if (viewport === 'desktop') {
+                desktopElement.style.display = 'block';
+                mobileElement.style.display = 'none';
+            } else {
+                desktopElement.style.display = 'none';
+                mobileElement.style.display = 'block';
+            }
+
+            // Update button states
+            if (event) {
+                const buttons = event.target.parentElement.querySelectorAll('.viewport-button');
+                buttons.forEach(button => button.classList.remove('active'));
+                event.target.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
