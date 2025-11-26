@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Medina Portfolio - Design Options (Layout Differences)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-button.active {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .tab-button:hover {
+            border-color: #333;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .mockup {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        /* ===== OPTION A: Tech Minimalist Elite ===== */
+        .option-a {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        .option-a-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: #0f172a;
+        }
+
+        .option-a-nav-logo {
+            font-weight: 700;
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .option-a-nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .option-a-nav-links a {
+            text-decoration: none;
+            color: #f1f5f9;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .option-a-nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Option A Hero - Centered, Minimal */
+        .option-a-hero {
+            padding: 100px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(139, 92, 246, 0.05));
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .option-a-hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .option-a-hero p {
+            font-size: 18px;
+            color: #cbd5e1;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+
+        .option-a-cta {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .option-a-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Option A Cards Grid - 3 columns */
+        .option-a-section {
+            padding: 60px 40px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .option-a-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .option-a-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .option-a-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .option-a-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-4px);
+        }
+
+        .option-a-card-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            opacity: 0.2;
+        }
+
+        .option-a-card-content {
+            padding: 20px;
+        }
+
+        .option-a-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 8px;
+            color: #f1f5f9;
+        }
+
+        .option-a-card-desc {
+            font-size: 14px;
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .option-a-footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ===== OPTION B: Interactive Innovation ===== */
+        .option-b {
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        .option-b-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 24px 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: #0a0a0a;
+        }
+
+        .option-b-nav-logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .option-b-nav-center {
+            text-align: center;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .option-b-nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .option-b-nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 13px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Option B Hero - Asymmetric, Bold */
+        .option-b-hero {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(139, 92, 246, 0.08));
+            min-height: 600px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+        }
+
+        .option-b-hero-content {
+            z-index: 2;
+        }
+
+        .option-b-hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .option-b-hero p {
+            font-size: 18px;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .option-b-cta {
+            display: inline-block;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .option-b-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+        }
+
+        .option-b-hero-visual {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            border-radius: 0;
+            opacity: 0.2;
+            position: relative;
+        }
+
+        /* Option B Section - Asymmetric */
+        .option-b-section {
+            padding: 80px 40px;
+            background: #0a0a0a;
+        }
+
+        .option-b-section h2 {
+            font-size: 56px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .option-b-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .option-b-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .option-b-card:hover {
+            border-color: #ec4899;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3);
+        }
+
+        .option-b-card-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            opacity: 0.15;
+        }
+
+        .option-b-card-content {
+            padding: 28px;
+        }
+
+        .option-b-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .option-b-card-desc {
+            font-size: 14px;
+            color: #aaaaaa;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 16px;
+        }
+
+        .option-b-footer {
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 13px;
+            color: #666666;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== OPTION C: Elegant Professional Hybrid ===== */
+        .option-c {
+            background-color: #f9fafb;
+            color: #111827;
+        }
+
+        .option-c-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            border-bottom: 1px solid #e5e7eb;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .option-c-nav-logo {
+            font-weight: 700;
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .option-c-nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .option-c-nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .option-c-nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .option-c-nav-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .option-c-theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Option C Hero - Centered with image */
+        .option-c-hero {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(6, 182, 212, 0.05));
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .option-c-hero-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            opacity: 0.2;
+        }
+
+        .option-c-hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .option-c-hero p {
+            font-size: 18px;
+            color: #6b7280;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .option-c-cta {
+            display: inline-block;
+            padding: 12px 36px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .option-c-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Option C Section - Balanced Grid */
+        .option-c-section {
+            padding: 60px 40px;
+            background: #ffffff;
+        }
+
+        .option-c-section h2 {
+            font-size: 44px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #111827;
+        }
+
+        .option-c-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        .option-c-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .option-c-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .option-c-card-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            opacity: 0.15;
+        }
+
+        .option-c-card-content {
+            padding: 20px;
+        }
+
+        .option-c-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .option-c-card-desc {
+            font-size: 14px;
+            color: #6b7280;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .option-c-footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #9ca3af;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .option-a-grid,
+            .option-c-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .option-b-hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .option-a-grid,
+            .option-b-grid,
+            .option-c-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-a-hero,
+            .option-c-hero {
+                padding: 40px 20px;
+            }
+
+            .option-b-hero {
+                padding: 40px 20px;
+            }
+        }
+
+        .notes {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .notes h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .notes ul {
+            margin-left: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Design Options - LAYOUT & STRUCTURE DIFFERENCES</h1>
+            <p class="subtitle">David Medina Portfolio - Interactive Mockups showing REAL visual differences beyond colors</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab(event, 'option-a')">
+                ⭐ Option A: Tech Minimalist Elite
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'option-b')">
+                🚀 Option B: Interactive Innovation
+            </button>
+            <button class="tab-button" onclick="switchTab(event, 'option-c')">
+                ✨ Option C: Elegant Professional Hybrid
+            </button>
+        </div>
+
+        <!-- ===== OPTION A ===== -->
+        <div id="option-a" class="tab-content active">
+            <div class="notes">
+                <h3>Option A: Tech Minimalist Elite</h3>
+                <ul>
+                    <li><strong>Layout:</strong> Centered, symmetrical, minimal whitespace</li>
+                    <li><strong>Navigation:</strong> Simple horizontal links, aligned right</li>
+                    <li><strong>Hero:</strong> Full-width centered with gradient overlay</li>
+                    <li><strong>Content Grid:</strong> 3-column layout for cards</li>
+                    <li><strong>Typography:</strong> Inter font family (clean, professional)</li>
+                    <li><strong>Colors:</strong> Dark slate with blue-purple gradient</li>
+                    <li><strong>Animations:</strong> Minimal, smooth transitions only</li>
+                    <li><strong>Implementation:</strong> 2-3 weeks (LOW complexity)</li>
+                </ul>
+            </div>
+
+            <div class="mockup option-a">
+                <!-- Navigation -->
+                <nav class="option-a-nav">
+                    <div class="option-a-nav-logo">DM</div>
+                    <ul class="option-a-nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Projects</a></li>
+                    </ul>
+                    <div style="font-size: 13px;">EN | ES | FR</div>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="option-a-hero">
+                    <h1>Data Engineer & AI Specialist</h1>
+                    <p>20+ years building scalable systems. Specializing in data architecture, machine learning, and cloud infrastructure.</p>
+                    <button class="option-a-cta">View My Work</button>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="option-a-section">
+                    <h2>Latest Articles</h2>
+                    <div class="option-a-grid">
+                        <div class="option-a-card">
+                            <div class="option-a-card-image">📚</div>
+                            <div class="option-a-card-content">
+                                <div class="option-a-card-title">Getting Started with Next.js 16</div>
+                                <div class="option-a-card-desc">A comprehensive guide to building modern web applications with the latest framework features.</div>
+                            </div>
+                        </div>
+                        <div class="option-a-card">
+                            <div class="option-a-card-image">🧠</div>
+                            <div class="option-a-card-content">
+                                <div class="option-a-card-title">Machine Learning Fundamentals</div>
+                                <div class="option-a-card-desc">Understanding the basics of ML and its applications in production environments.</div>
+                            </div>
+                        </div>
+                        <div class="option-a-card">
+                            <div class="option-a-card-image">⚙️</div>
+                            <div class="option-a-card-content">
+                                <div class="option-a-card-title">Data Pipeline Architecture</div>
+                                <div class="option-a-card-desc">Building reliable and scalable data processing systems at enterprise scale.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="option-a-footer">
+                    <p>© 2025 David Medina. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== OPTION B ===== -->
+        <div id="option-b" class="tab-content">
+            <div class="notes">
+                <h3>Option B: Interactive Innovation Showcase</h3>
+                <ul>
+                    <li><strong>Layout:</strong> Asymmetrical, dynamic, bold proportions</li>
+                    <li><strong>Navigation:</strong> 3-column layout with centered text, minimal styling</li>
+                    <li><strong>Hero:</strong> Two-column: text LEFT + visual RIGHT (asymmetric)</li>
+                    <li><strong>Content Grid:</strong> 2-column layout (larger cards, more breathing room)</li>
+                    <li><strong>Typography:</strong> Space Grotesk (geometric, bold, modern)</li>
+                    <li><strong>Colors:</strong> Pure black with pink-purple gradient</li>
+                    <li><strong>Animations:</strong> Heavy - 3D transforms, parallax, hover effects</li>
+                    <li><strong>Implementation:</strong> 4-6 weeks (HIGH complexity)</li>
+                </ul>
+            </div>
+
+            <div class="mockup option-b">
+                <!-- Navigation - Asymmetric -->
+                <nav class="option-b-nav">
+                    <div class="option-b-nav-logo">DM</div>
+                    <div class="option-b-nav-center">DIGITAL CRAFTSMAN</div>
+                    <ul class="option-b-nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Hero Section - Two Column Asymmetric -->
+                <div class="option-b-hero">
+                    <div class="option-b-hero-content">
+                        <h1>Building Tomorrow's Infrastructure</h1>
+                        <p>Innovative data solutions for the modern enterprise. 20+ years of transforming complex challenges into elegant systems.</p>
+                        <button class="option-b-cta">Explore Portfolio</button>
+                    </div>
+                    <div class="option-b-hero-visual"></div>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="option-b-section">
+                    <h2>Featured Projects</h2>
+                    <div class="option-b-grid">
+                        <div class="option-b-card">
+                            <div class="option-b-card-image">📚</div>
+                            <div class="option-b-card-content">
+                                <div class="option-b-card-title">Next.js Performance Optimization</div>
+                                <div class="option-b-card-desc">Advanced techniques for building lightning-fast web applications with modern frameworks.</div>
+                            </div>
+                        </div>
+                        <div class="option-b-card">
+                            <div class="option-b-card-image">🧠</div>
+                            <div class="option-b-card-content">
+                                <div class="option-b-card-title">AI/ML in Production</div>
+                                <div class="option-b-card-desc">Deploying machine learning models at scale with real-world case studies and lessons learned.</div>
+                            </div>
+                        </div>
+                        <div class="option-b-card">
+                            <div class="option-b-card-image">⚙️</div>
+                            <div class="option-b-card-content">
+                                <div class="option-b-card-title">Enterprise Data Systems</div>
+                                <div class="option-b-card-desc">Architecture patterns for handling petabyte-scale data with reliability and performance.</div>
+                            </div>
+                        </div>
+                        <div class="option-b-card">
+                            <div class="option-b-card-image">🚀</div>
+                            <div class="option-b-card-content">
+                                <div class="option-b-card-title">Cloud Infrastructure Design</div>
+                                <div class="option-b-card-desc">Building resilient, cost-effective cloud architectures across AWS, GCP, and Azure.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="option-b-footer">
+                    <p>© 2025 DAVID MEDINA — CRAFTING DATA EXCELLENCE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== OPTION C ===== -->
+        <div id="option-c" class="tab-content">
+            <div class="notes">
+                <h3>Option C: Elegant Professional Hybrid</h3>
+                <ul>
+                    <li><strong>Layout:</strong> Balanced, symmetric with warm accents</li>
+                    <li><strong>Navigation:</strong> Horizontal with theme toggle (light/dark mode)</li>
+                    <li><strong>Hero:</strong> Centered with circular profile image above title</li>
+                    <li><strong>Content Grid:</strong> 3-column layout with subtle shadows</li>
+                    <li><strong>Typography:</strong> Poppins font (warm, friendly, approachable)</li>
+                    <li><strong>Colors:</strong> Light background with blue-cyan gradient, light/dark toggle</li>
+                    <li><strong>Animations:</strong> Moderate, smooth transitions with hover effects</li>
+                    <li><strong>Implementation:</strong> 3-4 weeks (MEDIUM complexity)</li>
+                </ul>
+            </div>
+
+            <div class="mockup option-c">
+                <!-- Navigation with Theme Toggle -->
+                <nav class="option-c-nav">
+                    <div class="option-c-nav-logo">DM</div>
+                    <ul class="option-c-nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <div class="option-c-nav-right">
+                        <button class="option-c-theme-toggle">🌙</button>
+                    </div>
+                </nav>
+
+                <!-- Hero Section - Centered with Image -->
+                <div class="option-c-hero">
+                    <div class="option-c-hero-image">👤</div>
+                    <h1>David Medina</h1>
+                    <p>Data Engineer & AI Specialist with 20+ years of experience building scalable systems and leading technical teams.</p>
+                    <button class="option-c-cta">Get In Touch</button>
+                </div>
+
+                <!-- Blog Section -->
+                <div class="option-c-section">
+                    <h2>Recent Articles</h2>
+                    <div class="option-c-grid">
+                        <div class="option-c-card">
+                            <div class="option-c-card-image">📚</div>
+                            <div class="option-c-card-content">
+                                <div class="option-c-card-title">Getting Started with Next.js 16</div>
+                                <div class="option-c-card-desc">A comprehensive guide to building modern web applications with the latest framework.</div>
+                            </div>
+                        </div>
+                        <div class="option-c-card">
+                            <div class="option-c-card-image">🧠</div>
+                            <div class="option-c-card-content">
+                                <div class="option-c-card-title">Machine Learning Fundamentals</div>
+                                <div class="option-c-card-desc">Understanding ML basics and their applications in production environments.</div>
+                            </div>
+                        </div>
+                        <div class="option-c-card">
+                            <div class="option-c-card-image">⚙️</div>
+                            <div class="option-c-card-content">
+                                <div class="option-c-card-title">Data Pipeline Architecture</div>
+                                <div class="option-c-card-desc">Building reliable and scalable data processing systems at enterprise scale.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="option-c-footer">
+                    <p>© 2025 David Medina. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="notes" style="margin-top: 40px;">
+            <h3>📊 Key Differences at a Glance</h3>
+            <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 12px; font-weight: 600;">Aspect</th>
+                        <th style="text-align: left; padding: 12px; font-weight: 600;">Option A</th>
+                        <th style="text-align: left; padding: 12px; font-weight: 600;">Option B</th>
+                        <th style="text-align: left; padding: 12px; font-weight: 600;">Option C</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Navigation</strong></td>
+                        <td style="padding: 12px;">Simple horizontal</td>
+                        <td style="padding: 12px;">3-column asymmetric</td>
+                        <td style="padding: 12px;">Classic with toggle</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Hero Layout</strong></td>
+                        <td style="padding: 12px;">Centered, full-width</td>
+                        <td style="padding: 12px;">Two-column asymmetric</td>
+                        <td style="padding: 12px;">Centered with image</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Grid Layout</strong></td>
+                        <td style="padding: 12px;">3 columns</td>
+                        <td style="padding: 12px;">2 columns (4 cards)</td>
+                        <td style="padding: 12px;">3 columns</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Font</strong></td>
+                        <td style="padding: 12px;">Inter</td>
+                        <td style="padding: 12px;">Space Grotesk</td>
+                        <td style="padding: 12px;">Poppins</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Animations</strong></td>
+                        <td style="padding: 12px;">Minimal</td>
+                        <td style="padding: 12px;">Heavy (3D, parallax)</td>
+                        <td style="padding: 12px;">Moderate</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Color Scheme</strong></td>
+                        <td style="padding: 12px;">Dark slate</td>
+                        <td style="padding: 12px;">Pure black</td>
+                        <td style="padding: 12px;">Light + toggle</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Theme Toggle</strong></td>
+                        <td style="padding: 12px;">No</td>
+                        <td style="padding: 12px;">No</td>
+                        <td style="padding: 12px;">Yes (light/dark)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;"><strong>Time to Build</strong></td>
+                        <td style="padding: 12px;">2-3 weeks</td>
+                        <td style="padding: 12px;">4-6 weeks</td>
+                        <td style="padding: 12px;">3-4 weeks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(event, tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
